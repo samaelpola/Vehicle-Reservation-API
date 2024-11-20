@@ -1,5 +1,4 @@
 const Vehicle = require("../models/vehicle.model");
-const {getModel} = require("./model.service");
 
 const checkRegistrationAlreadyExist = async (vehicleRegistration) => {
     const vehicle = await Vehicle.findOne({

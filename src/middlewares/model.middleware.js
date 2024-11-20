@@ -5,7 +5,7 @@ const checkModelExist = async (req, res, next) => {
     const model = await getModel(modelId);
 
     if (!model) {
-        res.status(404).json({message: `model '${modelId}' not found`})
+        return res.status(404).json({message: `model '${modelId}' not found`});
     }
 
     req.model = model;
