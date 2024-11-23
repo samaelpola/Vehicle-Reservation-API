@@ -5,7 +5,7 @@ const checkVehicleExist = async (req, res, next) => {
     const vehicle = await Vehicle.findByPk(vehicleId, {include: { all: true}});
 
     if (!vehicle) {
-        res.status(404).json({message: `vehicle '${vehicleId}' not found`})
+        return res.status(404).json({message: `vehicle '${vehicleId}' not found`});
     }
 
     req.vehicle = vehicle;

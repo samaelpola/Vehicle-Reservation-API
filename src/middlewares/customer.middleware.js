@@ -5,7 +5,7 @@ const checkCustomerExist = async (req, res, next) => {
     const customer = await getCustomer(customerId);
 
     if (!customer) {
-        res.status(404).json({message: `customer '${customerId}' not found`})
+        return res.status(404).json({message: `customer '${customerId}' not found`});
     }
 
     req.customer = customer;
