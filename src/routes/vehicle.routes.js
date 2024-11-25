@@ -16,11 +16,11 @@ router.get("/:vehicleId", vehicleMiddleware, (req, res) => {
 });
 
 router.post("/", checkSchema(vehicleValidationRules), validateSchema, async (req, res) => {
-    return res.status(201).json(await createVehicle(req.body, req.vehicle));
+    return res.status(201).json(await createVehicle(req.body, req.model));
 });
 
 router.patch("/:vehicleId", checkSchema(vehiclePatchValidationRules), validateSchema, vehicleMiddleware, async (req, res) => {
-    return res.json(await updateVehicle(req.vehicle, req.body, req.vehicle));
+    return res.json(await updateVehicle(req.vehicle, req.body, req.model));
 });
 
 router.delete("/:vehicleId", vehicleMiddleware, async (req, res) => {
