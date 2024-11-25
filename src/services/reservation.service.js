@@ -138,7 +138,7 @@ const updateReservation = async (reservation, data, customer, vehicle) => {
     }
 
     await reservation.save();
-    return reservation;
+    return await getReservation(reservation.id);
 }
 
 
